@@ -38,3 +38,29 @@ insert into cliente values(2, 'Sergio')
 insert into notas values(1, 1, 1, 4, null)
 insert into notas values(2, 2, 2, 1, null)
 
+/*DELETE*/
+
+/*
+delete from notas
+
+delete from producto where clave_prod=3
+
+delete from producto where precio=9
+
+delete from producto where precio=7 and clave_prod=1
+*/
+
+/*DROP*/
+
+/*
+drop table notas
+
+use master
+drop database modificar
+*/
+
+/*TRUNCATE*/
+
+/*
+truncate table notas
+*/
