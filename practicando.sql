@@ -9,8 +9,6 @@ create table carrera(
   constraint pk_cc primary key(clave_c)
 )
 
-select * from carrera
-
 --Tabla materia
 create table materia(
   clave_m int,
@@ -18,8 +16,6 @@ create table materia(
   cred_m float,
   constraint pk_cm primary key(clave_m)
 )
-
-select clave_m, nom_m from materia
 
 --Tabla profesor
 create table profesor(
@@ -103,3 +99,26 @@ insert into mat_alu values(4, 1)
 
 --Materia-Profesor
 insert into mat_pro values(2, 2)
+
+/*SELECT*/
+--Tabla carrera
+select * from carrera
+
+--Tabla materia
+select clave_m, nom_m from materia
+
+/*SELECT con INNER JOIN*/
+select nom_alu, edad_alu, sem_alu, nom_c
+from alumno inner join carrera on alumno.clave_c1=carrera.clave_c
+
+select nom_alu, edad_alu, sem_alu, nom_c
+from alumno inner join carrera on alumno.clave_c1=carrera.clave_c
+inner join alu_pro on alu_pro.mat_alu1=alumno.mat_alu
+inner join profesor on profesor.clave_p=alu_pro.clave_p1
+
+/*WHERE*/
+select nom_alu, edad_alu, sem_alu, nom_c
+from alumno inner join carrera on alumno.clave_c1=carrera.clave_c
+inner join alu_pro on alu_pro.mat_alu1=alumno.mat_alu
+inner join profesor on profesor.clave_p=alu_pro.clave_p1
+where edad_alu!=18
