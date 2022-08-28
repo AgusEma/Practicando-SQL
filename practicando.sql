@@ -9,9 +9,6 @@ create table carrera(
   constraint pk_cc primary key(clave_c)
 )
 
-insert into carrera values(1, 'Derecho', 3)
-insert into carrera values(2, 'Ingenieria en Sistemas', 4)
-
 select * from carrera
 
 --Tabla materia
@@ -21,9 +18,6 @@ create table materia(
   cred_m float,
   constraint pk_cm primary key(clave_m)
 )
-
-insert into materia values(1, 'Matematicas', 25)
-insert into materia values(2, 'Espanol', 15)
 
 select clave_m, nom_m from materia
 
@@ -37,9 +31,6 @@ create table profesor(
   constraint pk_cp primary key(clave_p)
 )
 
-insert into profesor values(1, 'Laura Rosas', 'Calle Azul', 567867, '7:00')
-insert into profesor values(2, 'Roberto Diaz', 'Calle Rosa', 56743526, '9:00')
-
 --Tabla alumno
 create table alumno(
   mat_alu int,
@@ -52,8 +43,6 @@ create table alumno(
   constraint fk_fc1 foreign key(clave_c1) references carrera(clave_c)
 )
 
-insert into alumno values (1, 'Ana', 18, 6, 'Femenino', 1)
-
 --Alumno-Profesor
 create table alu_pro(
   mat_alu1 int,
@@ -61,8 +50,6 @@ create table alu_pro(
   constraint fk_falu1 foreign key(mat_alu1) references alumno(mat_alu),
   constraint fk_fp1 foreign key(clave_p1) references profesor(clave_p)
 )
-
-insert into alu_pro values (1, 2)
 
 --Materia-Alumno
 create table mat_alu(
@@ -72,8 +59,6 @@ create table mat_alu(
   constraint fk_falu2 foreign key(mat_alu2) references alumno(mat_alu)
 )
 
-insert into mat_alu values(1, 1)
-
 --Materia-Profesor
 create table mat_pro(
   clave_m2 int,
@@ -82,4 +67,39 @@ create table mat_pro(
   constraint fk_fp2 foreign key(clave_p2) references profesor(clave_p)
 )
 
+
+/*INSERT*/
+--Tabla carrera
+
+insert into carrera values(1, 'Derecho', 3)
+insert into carrera values(2, 'Ingenieria en Sistemas', 4)
+insert into carrera values(3, 'Diseño', 3)
+
+--Tabla materia
+insert into materia values(1, 'Matematicas', 25)
+insert into materia values(2, 'Espanol', 15)
+insert into materia values(3, 'Dibujo', 15)
+insert into materia values(4, 'Programación', 20)
+
+--Tabla profesor
+insert into profesor values(1, 'Laura Rosas', 'Calle Azul', 567867, '7:00')
+insert into profesor values(2, 'Roberto Diaz', 'Calle Rosa', 56743526, '9:00')
+
+--Tabla alumno
+insert into alumno values (1, 'Ana', 18, 6, 'Femenino', 1)
+insert into alumno values(2, 'Sergio', 19, 7, 'Masculino', 2)
+insert into alumno values(3, 'Julieta', 20, 6, 'Femenino', 3)
+
+--Alumno-Profesor
+insert into alu_pro values (1, 2)
+insert into alu_pro values(2, 2)
+insert into alu_pro values(3, 2)
+
+--Materia-Alumno
+insert into mat_alu values(1, 1)
+insert into mat_alu values(4, 2)
+insert into mat_alu values(3, 3)
+insert into mat_alu values(4, 1)
+
+--Materia-Profesor
 insert into mat_pro values(2, 2)
